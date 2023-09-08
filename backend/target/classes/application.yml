@@ -1,0 +1,24 @@
+server:
+    error:
+        include-message: always
+    port: 8080
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5433/customer
+        driver-class-name: org.postgresql.Driver
+        password: 123456789
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: none
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+                show_sql: true
+    main:
+        web-application-type: servlet
+
+    docker:
+        compose:
+            enabled: off
