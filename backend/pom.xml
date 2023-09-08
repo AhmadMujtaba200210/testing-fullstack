@@ -11,16 +11,19 @@
     <groupId>com.amigoes</groupId>
     <artifactId>fullstack</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <organization>
-        <name>ahmadmujtaba</name>
-        <url>https://amigoescode.com</url>
-    </organization>
+
     <name>fullstack</name>
     <description>fullstack</description>
+
+
     <properties>
         <java.version>17</java.version>
         <docker.username>ahmadmujtaba200210</docker.username>
+        <docker.image.name>fullstack</docker.image.name>
+        <docker.image.tag/>
     </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -164,7 +167,7 @@
                         </platforms>
                     </from>
                     <to>
-                        <image>docker.io/${docker.username}/${project.artifactId}:${project.version}</image>
+                        <image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
                         <tags>
                             <tag>latest</tag>
                         </tags>
