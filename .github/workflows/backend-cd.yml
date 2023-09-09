@@ -37,7 +37,7 @@ jobs:
           --data '
             {"text":"Deployment started :progress_bar: :fingerscrossed:"}
           '
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
+          ${{ secrets.SLACK_WEBHOOK_URL }}
       
 
 
@@ -52,7 +52,8 @@ jobs:
           --data '
             {"text":"Set Up Java 17 :java:"}
           '
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -72,7 +73,7 @@ jobs:
           --data '
             {"text":"Build Completed Successfully :builder:"}
           '
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
+          ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
       - name: Update Dockerrun.aws.json api image tag with new build number
@@ -89,7 +90,7 @@ jobs:
           --data '
             {"text":"Updated Dockerrun.aws.json file with build number :docker:"}
           '
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
+          ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
       - name: Deploy to Elastic Beanstalk
@@ -109,7 +110,7 @@ jobs:
           --data '
             {"text":"Pushed to Elastic Beanstalk :aws: :aws_r53:"}
           '
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
+          ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
       - name: commit and push Dockerrun.aws.json
@@ -125,4 +126,4 @@ jobs:
           --data '
             {"text":"Commit and Pushed Successfully :github: :github-approved:"}
           '
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
+          ${{ secrets.SLACK_WEBHOOK_URL }}
