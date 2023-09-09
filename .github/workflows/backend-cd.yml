@@ -46,10 +46,8 @@ jobs:
           cache: 'maven'
       - name: Send Slack Message
         run: >
-          curl && curl -X POST -H 'Content-type: application/json'
-          --data '
-            {"text":"Set Up Java 17 :java:"}
-          '
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Set Up Java 17 :java:"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Login to Docker Hub
