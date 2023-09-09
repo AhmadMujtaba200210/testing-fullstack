@@ -33,7 +33,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
+          curl && curl -X POST -H 'Content-type: application/json'
           --data '
             {"text":"Deployment started :progress_bar: :fingerscrossed:"}
           '
@@ -48,7 +48,7 @@ jobs:
           cache: 'maven'
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
+          curl && curl -X POST -H 'Content-type: application/json'
           --data '
             {"text":"Set Up Java 17 :java:"}
           '
@@ -68,7 +68,7 @@ jobs:
         run: mvn -ntp -B verify -D docker.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
+          curl && curl -X POST -H 'Content-type: application/json'
           --data '
             {"text":"Build Completed Successfully :builder:"}
           '
@@ -85,7 +85,7 @@ jobs:
 
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
+          curl && curl -X POST -H 'Content-type: application/json'
           --data '
             {"text":"Updated Dockerrun.aws.json file with build number :docker:"}
           '
@@ -105,7 +105,7 @@ jobs:
           deployment_package: backend/Dockerrun.aws.json
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
+          curl && curl -X POST -H 'Content-type: application/json'
           --data '
             {"text":"Pushed to Elastic Beanstalk :aws: :aws_r53:"}
           '
@@ -121,7 +121,7 @@ jobs:
           git push
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
+          curl && curl -X POST -H 'Content-type: application/json'
           --data '
             {"text":"Commit and Pushed Successfully :github: :github-approved:"}
           '
