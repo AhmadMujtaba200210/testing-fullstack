@@ -1,0 +1,15 @@
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerServices.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/exception/ResourceNotFoundException.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/FullstackApplication.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerController.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerDao.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/PingPongController.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerRowMapper.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerJPADataAccess.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/Customer.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerUpdateRequest.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerJDBCDataAccess.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/RegisterRequest.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/exception/ResourceDuplicateFoundException.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/exception/RequestValidationException.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/main/java/com/amigoes/fullstack/customer/CustomerRepository.java
