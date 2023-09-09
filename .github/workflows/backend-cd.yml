@@ -65,10 +65,8 @@ jobs:
         run: mvn -ntp -B verify -D docker.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
       - name: Send Slack Message
         run: >
-          curl && curl -X POST -H 'Content-type: application/json'
-          --data '
-            {"text":"Build Completed Successfully :builder:"}
-          '
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Build Completed Successfully :builder:"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
@@ -82,10 +80,8 @@ jobs:
 
       - name: Send Slack Message
         run: >
-          curl && curl -X POST -H 'Content-type: application/json'
-          --data '
-            {"text":"Updated Dockerrun.aws.json file with build number :docker:"}
-          '
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Updated Dockerrun.aws.json file with build number :docker:"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
@@ -102,11 +98,9 @@ jobs:
           deployment_package: backend/Dockerrun.aws.json
       - name: Send Slack Message
         run: >
-          curl && curl -X POST -H 'Content-type: application/json'
-          --data '
-            {"text":"Pushed to Elastic Beanstalk :aws: :aws_r53:"}
-          '
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Pushed to Elastic Beanstalk :aws: :aws_r53:"}
+          '${{ secrets.SLACK_WEBHOOK_URL }}
 
 
       - name: commit and push Dockerrun.aws.json
@@ -118,8 +112,6 @@ jobs:
           git push
       - name: Send Slack Message
         run: >
-          curl && curl -X POST -H 'Content-type: application/json'
-          --data '
-            {"text":"Commit and Pushed Successfully :github: :github-approved:"}
-          '
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Commit and Pushed Successfully :github: :github-approved:"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
