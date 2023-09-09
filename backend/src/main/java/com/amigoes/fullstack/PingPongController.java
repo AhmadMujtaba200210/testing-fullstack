@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PingPongController {
+
+    // demo content
     record PingPong(String result){}
     private static int COUNTER = 0;
     @GetMapping("/ping")
