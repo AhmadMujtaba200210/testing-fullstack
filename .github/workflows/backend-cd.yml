@@ -96,11 +96,12 @@ jobs:
           version_description: ${{ github.SHA }}
           region: ${{ secrets.EB_REGION }}
           deployment_package: backend/Dockerrun.aws.json
+
       - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
-          --data '{"text":"Pushed to Elastic Beanstalk :aws: :aws_r53:"}
-          '${{ secrets.SLACK_WEBHOOK_URL }}
+            curl -X POST -H 'Content-type: application/json' 
+            --data '{"text":":githubloading: Committing to repo "}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
       - name: commit and push Dockerrun.aws.json
