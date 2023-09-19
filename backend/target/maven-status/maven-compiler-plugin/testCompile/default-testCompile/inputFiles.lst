@@ -1,7 +1,7 @@
 /home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/AbstractTestcontainersUnitTest.java
 /home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/customer/CustomerRepositoryTest.java
 /home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/customer/CustomerJDBCDataAccessTest.java
-/home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/customer/CustomerServicesTest.java
 /home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/TestContainersTest.java
+/home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/customer/CustomerServicesTest.java
 /home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/journey/CustomerIT.java
 /home/runner/work/testing-fullstack/testing-fullstack/backend/src/test/java/com/amigoes/fullstack/customer/CustomerJPADataAccessTest.java
