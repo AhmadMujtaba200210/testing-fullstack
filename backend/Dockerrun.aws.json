@@ -4,7 +4,7 @@
   "containerDefinitions": [
     {
       "name": "fullstack",
-      "image": "ahmadmujtaba200210/fullstack:19.09.2023.06.44.40",
+      "image": "ahmadmujtaba200210/fullstack:19.09.2023.11.08.30",
       "essential": true,
       "memory": 512,
       "portMappings": [
