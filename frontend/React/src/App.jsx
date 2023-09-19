@@ -41,6 +41,8 @@ const App = () => {
     </SidebarWithHeader>
     )
   }
+
+
   return (
     <SidebarWithHeader>
      
@@ -49,7 +51,10 @@ const App = () => {
       {
         customers.map((customer,index)=>
         <WrapItem key={index}>
-          <CardWithImage {...customer} />
+          <CardWithImage
+           {...customer} 
+           imageNo={index}
+          />
         </WrapItem>
 
         )

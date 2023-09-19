@@ -1,6 +1,7 @@
 package com.amigoes.fullstack.journey;
 
 import com.amigoes.fullstack.customer.Customer;
+import com.amigoes.fullstack.customer.Gender;
 import com.amigoes.fullstack.customer.RegisterRequest;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
@@ -35,7 +36,7 @@ public class CustomerIT {
         String email = fakerName.lastName() + UUID.randomUUID() + "@example.com";
         int age = random.nextInt(1, 100);
         RegisterRequest registerRequest = new RegisterRequest(
-                name, email, age
+                name, email, age, Gender.MALE
         );
         // send a post request
         webTestClient.post()
@@ -60,8 +61,8 @@ public class CustomerIT {
 
         // check if customer is present
         Customer expectedCustomer = new Customer(
-                name, email, age
-        );
+                name, email, age,
+                Gender.MALE);
         assertThat(allCustomers)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
                 .contains(expectedCustomer);
@@ -105,7 +106,7 @@ public class CustomerIT {
         String email = fakerName.lastName() + UUID.randomUUID() + "@example.com";
         int age = random.nextInt(1, 100);
         RegisterRequest registerRequest = new RegisterRequest(
-                name, email, age
+                name, email, age,Gender.MALE
         );
         // send a post request
         webTestClient.post()

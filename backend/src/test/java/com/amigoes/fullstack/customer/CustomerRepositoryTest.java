@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 // here will not connect our database with database used with developing
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -35,8 +34,8 @@ class CustomerRepositoryTest extends AbstractTestcontainersUnitTest {
         Customer customer=new Customer(
                 faker.name().fullName(),
                 email,
-                20
-        );
+                20,
+                Gender.MALE);
 
         customerRepository.save(customer);
 
@@ -52,8 +51,8 @@ class CustomerRepositoryTest extends AbstractTestcontainersUnitTest {
         Customer customer=new Customer(
                 faker.name().fullName(),
                 email,
-                20
-        );
+                20,
+                Gender.MALE);
 
         customerRepository.save(customer);
 

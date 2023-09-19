@@ -5,29 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a77b3c6-f42d-403b-887a-930f746aa289" name="Changes" comment="feat: AXIOS, CORS, Fetch customers, Card Component and Side Bar Component">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/config/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/.eslintrc.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/App.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/UserProfiles.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/components/card.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/components/shared/SideBar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/main.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/src/services/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/React/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V3__Add_Gender_Column_Customer_Table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Dockerrun.aws.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerrun.aws.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/PingPongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/PingPongController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/FullstackApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/FullstackApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerJDBCDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerJDBCDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/CustomerUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/amigoes/fullstack/customer/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerJDBCDataAccessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerJDBCDataAccessTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerJPADataAccessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerJPADataAccessTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerServicesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/customer/CustomerServicesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/journey/CustomerIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/amigoes/fullstack/journey/CustomerIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/FullstackApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/FullstackApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerJDBCDataAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerJDBCDataAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerRowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/CustomerUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/amigoes/fullstack/customer/RegisterRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerJDBCDataAccessTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerJDBCDataAccessTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerJPADataAccessTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerJPADataAccessTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerRepositoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerServicesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/customer/CustomerServicesTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/amigoes/fullstack/journey/CustomerIT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/React/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/React/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/React/src/components/card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/React/src/components/card.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -68,6 +79,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/Container/java_workspace/spring_workspace/testing-fullstack/backend/src/main/resources/db/migration&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -77,7 +89,56 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/main/resources/db/migration" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.FullstackApplication">
+    <configuration name="CustomerIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fullstack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.amigoes.fullstack.journey.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.amigoes.fullstack.journey" />
+      <option name="MAIN_CLASS_NAME" value="com.amigoes.fullstack.journey.CustomerIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerJDBCDataAccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fullstack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.amigoes.fullstack.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.amigoes.fullstack.customer" />
+      <option name="MAIN_CLASS_NAME" value="com.amigoes.fullstack.customer.CustomerJDBCDataAccessTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.amigoes.fullstack.customer in fullstack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fullstack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.amigoes.fullstack.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.amigoes.fullstack.customer" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FullstackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="fullstack" />
@@ -86,6 +147,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Write tests for class CustomerJDBCDataAccess" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="fullstack" />
+      <settings run-config-name="Write tests for class CustomerJDBCDataAccess" include-system-env-vars="true">
+        <jvm-args />
+        <selection-scope>class</selection-scope>
+        <selected-element key="com.amigoes.fullstack.customer.CustomerJDBCDataAccess" />
+      </settings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CustomerJDBCDataAccessTest" />
+        <item itemvalue="JUnit.CustomerIT" />
+        <item itemvalue="JUnit.com.amigoes.fullstack.customer in fullstack" />
+        <item itemvalue="Diffblue Cover.Write tests for class CustomerJDBCDataAccess" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -99,7 +177,8 @@
       <workItem from="1694239960860" duration="680000" />
       <workItem from="1694246373149" duration="3168000" />
       <workItem from="1695042800669" duration="2882000" />
-      <workItem from="1695101244855" duration="2621000" />
+      <workItem from="1695101244855" duration="6236000" />
+      <workItem from="1695117248958" duration="2464000" />
     </task>
     <task id="LOCAL-00001" summary="build: slack messages integrated">
       <option name="closed" value="true" />
@@ -197,7 +276,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695103077434</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat: AXIOS, CORS, Fetch customers, Card Component and Side Bar Component">
+      <option name="closed" value="true" />
+      <created>1695105822575</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1695105822576</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: AXIOS, CORS, Fetch customers, Card Component and Side Bar Component">
+      <option name="closed" value="true" />
+      <created>1695105837577</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1695105837577</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

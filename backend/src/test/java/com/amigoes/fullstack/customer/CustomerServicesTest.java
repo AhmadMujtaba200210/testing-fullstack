@@ -3,7 +3,6 @@ package com.amigoes.fullstack.customer;
 import com.amigoes.fullstack.exception.RequestValidationException;
 import com.amigoes.fullstack.exception.ResourceDuplicateFoundException;
 import com.amigoes.fullstack.exception.ResourceNotFoundException;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,13 +10,10 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -42,7 +38,8 @@ class CustomerServicesTest {
         RegisterRequest registerRequest=new RegisterRequest(
                 "Alex",
                 email,
-                19
+                19,
+                Gender.MALE
         );
         underTest.registerCustomer(registerRequest);
 
@@ -66,7 +63,8 @@ class CustomerServicesTest {
         RegisterRequest registerRequest=new RegisterRequest(
                 "Alex",
                 email,
-                19
+                19,
+                Gender.MALE
         );
         //WHEN
         assertThatThrownBy(()->underTest.registerCustomer(registerRequest))
@@ -82,8 +80,8 @@ class CustomerServicesTest {
         long id=10;
         String email="alex@example.com";
         Customer customer=new Customer(
-                id,"Alex",email,20
-        );
+                id,"Alex",email,20,
+                Gender.MALE);
 
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
 
@@ -127,12 +125,12 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19
-        );
+                "Alex",email,19,
+                Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail = "example1@gmail.com";
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                "ahmad", newEmail, 20
+                "ahmad", newEmail, 20,Gender.MALE
         );
 
         when(customerDao.existsPersonWithEmail(newEmail)).thenReturn(false);
@@ -155,12 +153,12 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19
-        );
+                "Alex",email,19,
+                Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
 
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                "ahmad", null, null
+                "ahmad", null, null,null
         );
 
         //WHEN
@@ -182,13 +180,13 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19
-        );
+                "Alex",email,19,
+                Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail="ahmad@example.com";
 
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                null, newEmail, null
+                null, newEmail, null,null
         );
         when(customerDao.existsPersonWithEmail(newEmail)).thenReturn(false);
         //WHEN
@@ -209,13 +207,13 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19
-        );
+                "Alex",email,19,
+                Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail="ahmad@example.com";
 
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                null, newEmail, null
+                null, newEmail, null,null
         );
 
         when(customerDao.existsPersonWithEmail(newEmail)).thenReturn(true);
@@ -233,12 +231,12 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19
-        );
+                "Alex",email,19,
+                Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
 
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                null, null, 22
+                null, null, 22,null
         );
 
         //WHEN
@@ -260,12 +258,12 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19
-        );
+                "Alex",email,19,
+                Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail = "example1@gmail.com";
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                customer.getName(), customer.getEmail(), customer.getAge()
+                customer.getName(), customer.getEmail(), customer.getAge(),customer.getGender()
         );
 
         //WHEN
