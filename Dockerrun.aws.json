@@ -16,7 +16,7 @@
     },
     {
       "name": "fullstack",
-      "image": "ahmadmujtaba200210/fullstack:04.10.2023.05.02.43",
+      "image": "ahmadmujtaba200210/fullstack:06.10.2023.14.52.47",
       "essential": true,
       "memory": 512,
       "portMappings": [
