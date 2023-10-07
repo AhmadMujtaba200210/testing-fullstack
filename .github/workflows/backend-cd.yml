@@ -75,16 +75,6 @@ jobs:
           --data '{"text":"Build Completed Successfully :builder:"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      - name: Set API Base URL for React
-        run: echo "API_BASE_URL=${{ secrets.REACT_API_BASE_URL }}" >> $GITHUB_OUTPUT
-
-      - name: Build and push React Docker image
-        run: |
-          docker build -t ahmadmujtaba200210/fullstack-react
-          --build-arg api_base_url=${{steps.set-api-url.outputs.API_BASE_URL}}
-          -f ../frontend/React/ .
-          docker push ahmadmujtaba200210/fullstack-react
-
       - name: Update Dockerrun.aws.json api image tag with new build number
         run: |
           echo "Dockerrun.aws.json before updating tag"
