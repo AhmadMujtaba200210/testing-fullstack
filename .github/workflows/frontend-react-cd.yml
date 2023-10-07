@@ -40,7 +40,7 @@ jobs:
           USERNAME=ahmadmujtaba200210 \
           REPO=fullstack-react \
           TAG=${{steps.build-number.outputs.BUILD_NUMBER}} \
-          ../../.ci/build-publish.sh. \
+          ../../.ci/build-publish.sh . \
             --build-arg api_base_url=http://fullstack-api-env.eba-tmfyidrh.us-east-2.elasticbeanstalk.com:8080
       - name: Slack Message
         run: >
