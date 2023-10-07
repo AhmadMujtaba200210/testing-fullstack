@@ -3,21 +3,28 @@ import SidebarWithHeader from './components/shared/SideBar';
 import { useEffect,useState } from 'react';
 import { getCustomers } from './services/client';
 import CardWithImage from './components/card';
+import DrawerForm from './components/CreateCustomerDrawer';
 
 const App = () => {
 
   const [customers,setCustomers] = useState([]);
   const [loading,setLoading] = useState(false);
 
-  useEffect(() => {
+  const fetchCustomers=()=>{
     setLoading(true);
    setTimeout(()=>{
     getCustomers().then(res=>{
       setCustomers(res.data);
       console.log(res.data);
-    }).catch(console.error()
+    }).catch(err=>{
+      console.log(err);
+    }
     ).finally(()=>setLoading(false))
    },3000)
+  }
+
+  useEffect(() => {
+    fetchCustomers();
   },[])
 
   if(loading){
@@ -37,6 +44,9 @@ const App = () => {
   if(customers.length<=0){
     return(
     <SidebarWithHeader>
+      <DrawerForm
+        fetchCustomers={fetchCustomers}
+      />
       <p>No customers found</p>
     </SidebarWithHeader>
     )
@@ -45,6 +55,9 @@ const App = () => {
 
   return (
     <SidebarWithHeader>
+      <DrawerForm
+        fetchCustomers={fetchCustomers}
+      />
      
       <Wrap justify={"center"} spacing={"30px"}>
         
@@ -54,6 +67,7 @@ const App = () => {
           <CardWithImage
            {...customer} 
            imageNo={index}
+           fetchCustomers={fetchCustomers}
           />
         </WrapItem>
 

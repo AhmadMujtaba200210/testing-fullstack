@@ -12,8 +12,12 @@ import {
   Tag,
   useColorModeValue,
 } from '@chakra-ui/react'
+import DeleteAlert from './DeleteAlert';
 
-export default function CardWithImage({id,name,age,email,gender,imageNo}) {
+import UpdateCustomerDrawer from './UpdateCustomerDrawer';
+
+
+export default function CardWithImage({id,name,age,email,gender,imageNo,fetchCustomers}) {
   const randomUserGender = gender==="MALE"?"men":"women";
   return (
     <Center py={6}>
@@ -52,6 +56,15 @@ export default function CardWithImage({id,name,age,email,gender,imageNo}) {
             </Heading>
             <Text color={'gray.500'}>{email}</Text>
             <Text color={'gray.500'}>Age {age} | {gender}</Text>
+
+            <UpdateCustomerDrawer
+              fetchCustomers={fetchCustomers}
+              initialValues={{name,email,age}}
+              customerEmail={email}
+            />
+            <DeleteAlert 
+                email={email}
+            />
           </Stack>
         </Box>
       </Box>
