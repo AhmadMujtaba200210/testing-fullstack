@@ -4,7 +4,7 @@
   "containerDefinitions": [
     {
       "name": "fullstack-react",
-      "image": "ahmadmujtaba200210/fullstack-react:13.12.2023.07.10.18",
+      "image": "ahmadmujtaba200210/fullstack-react:14.12.2023.15.14.20",
       "essential": true,
       "memory": 256,
       "portMappings": [
