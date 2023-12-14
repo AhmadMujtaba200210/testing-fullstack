@@ -1,6 +1,8 @@
 package com.amigoes.fullstack.customer;
 
 
+import com.amigoes.fullstack.jwt.JWTUtil;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,14 +10,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/api/v1/customer")
 public class CustomerController {
     private final CustomerServices customerServices;
-
-    public CustomerController(CustomerServices customerServices) {
+    private final JWTUtil jwtUtil;
+    public CustomerController(CustomerServices customerServices, JWTUtil jwtUtil) {
         this.customerServices = customerServices;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping("/register")
-    public void createUser(@RequestBody RegisterRequest registerRequest){
+    public ResponseEntity<?> createUser(@RequestBody RegisterRequest registerRequest){
         customerServices.registerCustomer(registerRequest);
+        String jwtToken=jwtUtil.issueToken(registerRequest.email(),"ROLE_USER");
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION,jwtToken)
+                .build();
     }
 
     @GetMapping("/user/{email}")

@@ -4,16 +4,21 @@ import com.amigoes.fullstack.exception.RequestValidationException;
 import com.amigoes.fullstack.exception.ResourceDuplicateFoundException;
 import com.amigoes.fullstack.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServices {
     private final CustomerDao customerDao;
-
-    public CustomerServices(@Qualifier("jdbc") CustomerDao customerDao) {
+    private final PasswordEncoder passwordEncoder;
+    private final CustomerDTOMapper customerDTOMapper;
+    public CustomerServices(@Qualifier("jdbc") CustomerDao customerDao, PasswordEncoder passwordEncoder, CustomerDTOMapper customerDTOMapper) {
         this.customerDao = customerDao;
+        this.passwordEncoder = passwordEncoder;
+        this.customerDTOMapper = customerDTOMapper;
     }
 
     public void registerCustomer(RegisterRequest registerRequest){
@@ -26,25 +31,33 @@ public class CustomerServices {
         Customer customer=new Customer(
                 registerRequest.name(),
                 registerRequest.email(),
+                passwordEncoder.encode(registerRequest.password()),
                 registerRequest.age(),
                 registerRequest.gender());
 
         customerDao.insertCustomer(customer);
     }
-    public Customer getCustomerByEmail(String email){
+    public CustomerDTO getCustomerByEmail(String email){
         return customerDao.selectCustomerByEmail(email)
+                .map(customerDTOMapper)
                 .orElseThrow(()->new ResourceNotFoundException(
                         "Customer not found!"
                 ));
     }
 
-    public List<Customer> getCustomerList(){
-        return customerDao.selectAllCustomers();
+    public List<CustomerDTO> getCustomerList(){
+        return customerDao.selectAllCustomers()
+                .stream()
+                .map(
+                        customerDTOMapper
+                ).collect(Collectors.toList());
     }
 
     public void updateCustomer(CustomerUpdateRequest customerUpdateRequest,String email){
-        Customer customer=getCustomerByEmail(email);
-
+        Customer customer = customerDao.selectCustomerByEmail(email)
+                .orElseThrow(()->new ResourceNotFoundException(
+                        "customer with email [%s] not found!".formatted(email)
+                ));
         boolean changes=false;
         if (customerUpdateRequest.name()!=null && !customerUpdateRequest.name().equals(customer.getName())){
             customer.setName(customerUpdateRequest.name());

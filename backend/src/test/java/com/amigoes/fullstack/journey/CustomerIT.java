@@ -1,6 +1,7 @@
 package com.amigoes.fullstack.journey;
 
 import com.amigoes.fullstack.customer.Customer;
+import com.amigoes.fullstack.customer.CustomerDTO;
 import com.amigoes.fullstack.customer.Gender;
 import com.amigoes.fullstack.customer.RegisterRequest;
 import com.github.javafaker.Faker;
@@ -14,11 +15,13 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 public class CustomerIT {
@@ -36,33 +39,46 @@ public class CustomerIT {
         String email = fakerName.lastName() + UUID.randomUUID() + "@example.com";
         int age = random.nextInt(1, 100);
         RegisterRequest registerRequest = new RegisterRequest(
-                name, email, age, Gender.MALE
+                name, email, "password", age, Gender.MALE
         );
+
         // send a post request
-        webTestClient.post()
-                .uri("/api/v1/customer/register")
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(Mono.just(registerRequest), RegisterRequest.class)
-                .exchange()
-                .expectStatus()
-                .isOk();
+        String jwtToken =(webTestClient.post()
+                        .uri("/api/v1/customer/register")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(Mono.just(registerRequest), RegisterRequest.class)
+                        .exchange()
+                        .expectStatus()
+                        .isOk()
+                        .returnResult(Void.class)
+                        .getRequestHeaders()
+                        .get(AUTHORIZATION))
+                .toString();
         // get all customer
-        List<Customer> allCustomers = webTestClient.get()
+        List<CustomerDTO> allCustomers = webTestClient.get()
                 .uri("/api/v1/customer")
                 .accept(MediaType.APPLICATION_JSON)
+                .header(AUTHORIZATION, "Bearer %s".formatted(jwtToken))
                 .exchange()
                 .expectStatus()
                 .isOk()
-                .expectBodyList(new ParameterizedTypeReference<Customer>() {
+                .expectBodyList(new ParameterizedTypeReference<CustomerDTO>() {
                 })
                 .returnResult()
                 .getResponseBody();
 
         // check if customer is present
-        Customer expectedCustomer = new Customer(
-                name, email, age,
-                Gender.MALE);
+        CustomerDTO expectedCustomer = new CustomerDTO(
+                null,
+                name,
+                email,
+                Gender.FEMALE,
+                age,
+                List.of("ROLE_USER"),
+                email
+        );
+
         assertThat(allCustomers)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
                 .contains(expectedCustomer);
@@ -88,13 +104,13 @@ public class CustomerIT {
         webTestClient.get()
                 .uri("/api/v1/customer/user/{email}", email)
                 .accept(MediaType.APPLICATION_JSON)
+                .header(AUTHORIZATION,String.format("Bearer %s",jwtToken))
                 .exchange()
                 .expectStatus()
                 .isOk()
-                .expectBody(new ParameterizedTypeReference<Customer>() {
+                .expectBody(new ParameterizedTypeReference<CustomerDTO>() {
                 })
-                .returnResult()
-                .getResponseBody();
+                .isEqualTo(expectedCustomer);
     }
 
     @Test
@@ -106,7 +122,7 @@ public class CustomerIT {
         String email = fakerName.lastName() + UUID.randomUUID() + "@example.com";
         int age = random.nextInt(1, 100);
         RegisterRequest registerRequest = new RegisterRequest(
-                name, email, age,Gender.MALE
+                name, email, "password", age,Gender.MALE
         );
         // send a post request
         webTestClient.post()

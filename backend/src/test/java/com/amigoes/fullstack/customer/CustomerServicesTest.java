@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
@@ -22,10 +23,12 @@ class CustomerServicesTest {
     @Mock
     private CustomerDao customerDao;
     private CustomerServices underTest;
-
+    @Mock
+    private PasswordEncoder passwordEncoder;
+    private final CustomerDTOMapper customerDTOMapper = new CustomerDTOMapper();
     @BeforeEach
     void setUp() {
-        underTest=new CustomerServices(customerDao);
+        underTest=new CustomerServices(customerDao, passwordEncoder, customerDTOMapper);
     }
 
     @Test
@@ -38,9 +41,11 @@ class CustomerServicesTest {
         RegisterRequest registerRequest=new RegisterRequest(
                 "Alex",
                 email,
-                19,
+                "password", 19,
                 Gender.MALE
         );
+        String passwordHash = "ç555ml;ƒ;lsd";
+        when(passwordEncoder.encode(registerRequest.password())).thenReturn(passwordHash);
         underTest.registerCustomer(registerRequest);
 
         //THEN
@@ -52,6 +57,7 @@ class CustomerServicesTest {
         assertThat(capturedArgument.getName()).isEqualTo(registerRequest.name());
         assertThat(capturedArgument.getEmail()).isEqualTo(registerRequest.email());
         assertThat(capturedArgument.getAge()).isEqualTo(registerRequest.age());
+        assertThat(capturedArgument.getPassword()).isEqualTo(passwordHash);
     }
     @Test
     void willThrowWhenEmailExistsWhileRegisteringCustomer() {
@@ -63,7 +69,7 @@ class CustomerServicesTest {
         RegisterRequest registerRequest=new RegisterRequest(
                 "Alex",
                 email,
-                19,
+                "password", 19,
                 Gender.MALE
         );
         //WHEN
@@ -80,16 +86,17 @@ class CustomerServicesTest {
         long id=10;
         String email="alex@example.com";
         Customer customer=new Customer(
-                id,"Alex",email,20,
+                id,"Alex",email, "password", 20,
                 Gender.MALE);
 
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
 
+        CustomerDTO expected = customerDTOMapper.apply(customer);
         //WHEN
-        Customer actual=underTest.getCustomerByEmail(email);
+        CustomerDTO actual=underTest.getCustomerByEmail(email);
 
         //HOW
-
+        assertThat(actual).isEqualTo(expected);
 
     }
 
@@ -125,7 +132,7 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19,
+                "Alex",email, "password", 19,
                 Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail = "example1@gmail.com";
@@ -153,7 +160,7 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19,
+                "Alex",email, "password", 19,
                 Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
 
@@ -180,7 +187,7 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19,
+                "Alex",email, "password", 19,
                 Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail="ahmad@example.com";
@@ -207,7 +214,7 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19,
+                "Alex",email, "password", 19,
                 Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail="ahmad@example.com";
@@ -231,7 +238,7 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19,
+                "Alex",email, "password", 19,
                 Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
 
@@ -258,7 +265,7 @@ class CustomerServicesTest {
         //GIVEN
         String email="example1@example.com";
         Customer customer=new Customer(
-                "Alex",email,19,
+                "Alex",email, "password", 19,
                 Gender.MALE);
         when(customerDao.selectCustomerByEmail(email)).thenReturn(Optional.of(customer));
         String newEmail = "example1@gmail.com";

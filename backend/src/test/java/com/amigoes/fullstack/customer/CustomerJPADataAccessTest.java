@@ -45,7 +45,7 @@ class CustomerJPADataAccessTest {
                 1L,
                 "Ali",
                 "ali.mehar@example.com",
-                20,
+                "password", 20,
                 Gender.MALE);
         underTest.insertCustomer(customer);
         verify(customerRepository).save(customer);
@@ -70,7 +70,7 @@ class CustomerJPADataAccessTest {
                 3L,
                 "Ahmad Mujtaba",
                 "ahmad.mujtaba@example.com",
-                23,
+                "password", 23,
                 Gender.MALE);
         underTest.updateCustomer(customer);
         verify(customerRepository).save(customer);
