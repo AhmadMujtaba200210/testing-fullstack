@@ -19,7 +19,7 @@ public class FullstackApplication {
     public static void main(String[] args) {
         SpringApplication.run(FullstackApplication.class, args);
     }
-
+        // i am testing my skills
     @Bean
     CommandLineRunner runner(
             CustomerRepository customerRepository,
